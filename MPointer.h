@@ -19,10 +19,10 @@ public:
     ~MPointer();
 
 
-T& operator*();// Sobrecarga del operador *
-    T& operator&();// Sobrecarga del operador &
-    
+    T& operator*();// Sobrecarga del operador *
+    T* operator&();   // Sobrecarga del operador &
     T* operator->() {// Sobrecarga del operador ->
+        return ptr;       // Retorna el puntero interno
     }
 
     void setValue(T value);
