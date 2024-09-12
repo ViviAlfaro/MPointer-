@@ -47,6 +47,11 @@ T* MPointer<T>::operator&() {
     return ptr;
 }
 
+template<typename T> //Asigna un valor al objeto apuntado por el puntero encapsulado.
+void MPointer<T>::setValue(T value) {
+    *ptr = value;
+}
+
 template<typename T> //Obtener el valor del objeto apuntado por ptr. La palabra clave const indica que no modifica el estado interno del objeto.
 T MPointer<T>::getValue() const {
     return *ptr;
