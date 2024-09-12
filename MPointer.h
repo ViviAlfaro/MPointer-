@@ -15,6 +15,20 @@ public:
 
     MPointer(); 
     MPointer(const MPointer& other);
-    MPointer& operator=(const MPointer& other);
+    MPointer& operator=(const MPointer& other); //Sobrecarga del operador de asignación. 
     ~MPointer();
-}
+
+
+T& operator*();// Sobrecarga del operador *
+    T& operator&();// Sobrecarga del operador &
+    
+    T* operator->() {// Sobrecarga del operador ->
+    }
+
+    void setValue(T value);
+    T getValue() const;
+};
+
+
+#include "MPointer.cpp"
+#endif
