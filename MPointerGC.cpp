@@ -31,12 +31,22 @@ void MPointerGC::removeReference(int id) {
     if (referenceCount.find(id) != referenceCount.end()) {
         referenceCount[id]--;
         if (referenceCount[id] == 0) {
-            delete static_cast<int*>(pointers[id]); // 
+            delete static_cast<int*>(pointers[id]); 
             pointers.erase(id);
+            referenceCount.erase(id);
+        }
+    }
+}
+
+//Recolección de basura eliminando punteros que ya no tienen referencias activas
+void MPointerGC::garbageCollect() {
+    for (auto it = referenceCount.begin(); it != referenceCount.end();) { //it para recorrer el mapa referenceCount, el cual contiene la cantidad de referencias a cada puntero
+        if (it->second == 0) { //Verifica si el conteo de referencias del puntero actual es igual a cero.
             delete static_cast<int*>(pointers[it->first]);
             pointers.erase(it->first);
             it = referenceCount.erase(it);
-            referenceCount.erase(id);
+        } else {
+            ++it;
         }
     }
 }
