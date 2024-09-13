@@ -11,9 +11,10 @@ LinkedList<T>::LinkedList() {
 // Destructor
 template<typename T>
 LinkedList<T>::~LinkedList() {
+    MPointer<Node<T>> current = head;
     while (current != nullptr) {
         MPointer<Node<T>> next = current->next;
-        // El destructor de MPointer se encarga de liberar la memoria
+        //El destructor de MPointer se encarga de liberar la memoria
         current = next;
     }
 }
