@@ -1,5 +1,3 @@
-MPointer.cpp:
-
 #include "MPointer.h"
 
 template<typename T> //Constructor por defecto, asigna dinamicamente la memoria para un objeto tipo T
