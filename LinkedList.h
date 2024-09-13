@@ -40,4 +40,14 @@ public:
     void bubbleSort();
     void insertionSort();
 
-    }
+    // Métodos auxiliares para encapsular el acceso a los valores de los nodos
+    T getNodeValue(Node<T>* node);         // Obtener el valor de un nodo
+    void setNodeValue(Node<T>* node, T value);  // Establecer el valor de un nodo
+
+private:
+    void quickSort(Node<T>* low, Node<T>* high);
+    Node<T>* partition(Node<T>* low, Node<T>* high);
+};
+
+#include "LinkedList.cpp"
+#endif
