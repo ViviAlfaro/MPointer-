@@ -91,3 +91,65 @@ template<typename T>
 void LinkedList<T>::quickSort() {
     quickSort(getHead(), getTail());
 }
+
+// Implementación de BubbleSort
+
+template<typename T>
+void LinkedList<T>::bubbleSort() {
+    bool swapped;
+    Node<T>* ptr1;
+    Node<T>* lptr = nullptr;
+
+    // Verificar si la lista está vacía
+    if (getHead() == nullptr)
+        return;
+
+    do {
+        swapped = false;
+        ptr1 = getHead();
+
+        while (ptr1->next.get() != lptr) {
+            if (*ptr1->data > *ptr1->next->data) {
+                std::swap(*ptr1->data, *ptr1->next->data);
+                swapped = true;
+            }
+            ptr1 = ptr1->next.get();
+        }
+        lptr = ptr1;
+    } while (swapped);
+}
+
+// Implementación de InsertionSort
+
+template<typename T>
+void LinkedList<T>::insertionSort() {
+    if (getHead() == nullptr)
+        return;
+
+    Node<T>* sorted = nullptr;
+    Node<T>* current = getHead();
+
+    while (current != nullptr) {
+        Node<T>* next = current->next.get();
+        if (sorted == nullptr || *sorted->data >= *current->data) {
+            current->next = sorted;
+            if (sorted != nullptr)
+                sorted->prev = MPointer<Node<T>>::New();
+            sorted = current;
+            sorted->prev = nullptr;
+        } else {
+            Node<T>* temp = sorted;
+            while (temp->next != nullptr && *temp->next->data < *current->data) {
+                temp = temp->next.get();
+            }
+            current->next = temp->next;
+            if (temp->next != nullptr)
+                temp->next->prev = MPointer<Node<T>>::New();
+            temp->next = current;
+            current->prev = temp;
+        }
+        current = next;
+    }
+
+    head = sorted;
+}
