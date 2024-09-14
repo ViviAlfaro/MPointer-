@@ -1,0 +1,2 @@
+/usr/bin/ar qc libLinkedListLib.a CMakeFiles/LinkedListLib.dir/MPointer.cpp.o CMakeFiles/LinkedListLib.dir/LinkedList.cpp.o CMakeFiles/LinkedListLib.dir/MPointerGC.cpp.o
+/usr/bin/ranlib libLinkedListLib.a

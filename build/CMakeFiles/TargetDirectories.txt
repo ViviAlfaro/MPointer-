@@ -1,0 +1,4 @@
+/home/viviana/Desktop/Proyecto I/build/CMakeFiles/LinkedListLib.dir
+/home/viviana/Desktop/Proyecto I/build/CMakeFiles/UnitTests.dir
+/home/viviana/Desktop/Proyecto I/build/CMakeFiles/edit_cache.dir
+/home/viviana/Desktop/Proyecto I/build/CMakeFiles/rebuild_cache.dir
